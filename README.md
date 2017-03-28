@@ -19,7 +19,7 @@ This is how the language should behave, not necessarily how it actually behaves.
 ### Short Instructions  
   
 #### Button Push[es] On A Frame  
-Example : LRSs  
+Example : LRST  
 Example : r  
 A grouping of one or more of consecutive letters, from the following : urdlLRABXYTSG.  
 • urdl : up,right,down,left on directional pad  
