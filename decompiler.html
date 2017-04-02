@@ -22,31 +22,32 @@ var p = {
 					var stateF  = (c !== "0");
 					var buttonF = (R+L+D+U+T+S+B+A+Y+X+W+E+G !== ".............");
 					var stylusF = (x+y+z !== "0000000");
+					var condensedButtonS = "";
+					if (R !== "."){condensedButtonS += "R";}
+					if (L !== "."){condensedButtonS += "L";}
+					if (D !== "."){condensedButtonS += "D";}
+					if (U !== "."){condensedButtonS += "U";}
+					if (T !== "."){condensedButtonS += "T";}
+					if (S !== "."){condensedButtonS += "S";}
+					if (B !== "."){condensedButtonS += "B";}
+					if (A !== "."){condensedButtonS += "A";}
+					if (Y !== "."){condensedButtonS += "Y";}
+					if (X !== "."){condensedButtonS += "X";}
+					if (W !== "."){condensedButtonS += "W";}
+					if (E !== "."){condensedButtonS += "E";}
+					if (G !== "."){condensedButtonS += "G";}
 					if      (!stateF && !buttonF && !stylusF){resS = "_";}
 					else if (!stateF && !buttonF &&  stylusF){
-						if (z === "0"){resS = "@sup ["+x+","+y+"]";}
-						else          {resS = "@sdn ["+x+","+y+"]";}}
+						resS = "@sty["+x+","+y+","+z+"]";}
 					else if (!stateF &&  buttonF && !stylusF){
-						if (R !== "."){resS += "r";}
-						if (L !== "."){resS += "l";}
-						if (D !== "."){resS += "d";}
-						if (U !== "."){resS += "u";}
-						if (T !== "."){resS += "T";}
-						if (S !== "."){resS += "S";}
-						if (B !== "."){resS += "B";}
-						if (A !== "."){resS += "A";}
-						if (Y !== "."){resS += "Y";}
-						if (X !== "."){resS += "X";}
-						if (W !== "."){resS += "L";}
-						if (E !== "."){resS += "R";}
-						if (G !== "."){resS += "G";}}
-					else if (!stateF &&  buttonF &&  stylusF){resS = "@raw "+stringS;}
+						resS += condensedButtonS;}
+					else if (!stateF &&  buttonF &&  stylusF){resS = "@all["+c+"]["+condensedButtonS+"]["+x+","+y+","+z+"]";}
 					else if ( stateF && !buttonF && !stylusF){
 						if (c === "2"){resS = "@rst";}
-						else          {resS = "@raw "+stringS;}}
-					else if ( stateF && !buttonF &&  stylusF){resS = "@raw "+stringS;}
-					else if ( stateF &&  buttonF && !stylusF){resS = "@raw "+stringS;}
-					else if ( stateF &&  buttonF &&  stylusF){resS = "@raw "+stringS;}
+						else          {resS = "@all["+c+"]["+condensedButtonS+"]["+x+","+y+","+z+"]";}}
+					else if ( stateF && !buttonF &&  stylusF){resS = "@all["+c+"]["+condensedButtonS+"]["+x+","+y+","+z+"]";}
+					else if ( stateF &&  buttonF && !stylusF){resS = "@all["+c+"]["+condensedButtonS+"]["+x+","+y+","+z+"]";}
+					else if ( stateF &&  buttonF &&  stylusF){resS = "@all["+c+"]["+condensedButtonS+"]["+x+","+y+","+z+"]";}
 					linSA.push(resS);
 					return "";};}(this,linSA)));}
 		// loopification

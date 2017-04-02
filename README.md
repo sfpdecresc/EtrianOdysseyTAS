@@ -1,15 +1,22 @@
 # EtrianOdysseyTAS  
-Programmable Etrian Odyssey TAS  
+Etrian Odyssey I TAS Programming Language  
   
 ## What Is It?  
-This is a simple, programming language that compiles to DeSmuME's .dsm file. You write some code in this language, then compile it with the .html[javascript] interface, saving the output as a .dsm file that you then load into DeSmuME with Etrian Odyssey running.  
+This is a simple programming language that compiles to DeSmuME's .dsm file. You write some code in this language, then compile it with the PHP tool, saving the output as a .dsm file that you then load into DeSmuME with Etrian Odyssey I running.  
   
 ## Why Is It?  
-Complete RNG manipulation for Etrian Odyssey has been discovered. RTA notes end up looking, more-or-less, like a TAS, since this game is mostly grid-walking and menuing. Since some of us already have TAS-like RTA notes, it would be nice to be able to just hand these notes to the emulator and have it run them for us. Because notes are slightly too complex, some compromises had to be made - but code still looks decently readable, so we can still use sort-of-human-written-looking notes as TAS input.  
+(1) We have complete RNG manipulation figured out for Etrian Odyssey, and it's doable in real time. Because of this, RTA notes end up looking like a TAS, since this game is mostly grid-walking and menuing.  
+(2) This game is too lengthy and mundane for frequent real time speedruns.  
+
+## Compiling Code In Your Command-Line Interface  
+(1) Have PHP installed (as far as I know, Apple OSs have PHP installed by default).  
+(2) Example : cd ~/Documents/EtrianOdysseyTAS/ && php -f compiler.php mappingPercentTAS.dsm library1.txt mappingPercentTAS.txt (first argument is output name, following arguments are code files, combined in left-to-right order)  
   
 ## Notes And Warnings  
 • Debugging a TAS in DeSmuME can be difficult. On the Apple OS versions, there's a handy little Execution Control window. There's a command called "Jump to frame number:". Its name is misleading. Think of it as "Fast-forward up until just before frame number:". If you load a TAS and then jump 1000 frames, DeSmuME will run the first 1000 input frames as fast as possible and then drop you off immediately before frame 1000. Use the #lbl instruction in your code to figure out where your breakpoints will be, pause the emulator, jump to that spot, and start debugging.  
-• The compiler will not help you very much regarding syntax errors, unless you open up your browser's JavaScript console and read through the intermediate JavaScript to see where the error occurred. Both this language and its intended uses are so simple that you shouldn't run into very many issues.  
+• The compiler will not help you very much regarding syntax errors. My hope is that this language is simple enough that you simply won't make any mistakes.  
+• The name of the function that gets called in order to make the .dsm is "main". Remember to include a #fxn[main] command at the top of your main code file, otherwise nothing will be generated.  
+• Currently, functions are evaluated as they're parsed - in a single pass. This means that you must define functions before you use them in code.  
   
 ## Language Specification  
 This is how the language should behave, not necessarily how it actually behaves.  
@@ -19,66 +26,56 @@ This is how the language should behave, not necessarily how it actually behaves.
 ### Short Instructions  
   
 #### Button Push[es] On A Frame  
-Example : LRST  
-Example : r  
-A grouping of one or more of consecutive letters, from the following : urdlLRABXYTSG.  
-• urdl : up,right,down,left on directional pad  
-• LR : left,right triggers  
-• ABXY : four thumb buttons  
-• T : s[T]art  
-• S : [S]elect  
-• G : debu[G]  
+Example : A  
+Example : UR  
+A consecutive grouping of one or more of the following letters : RLDUTSBAYXWEG.  
+• RLDU : right,left,down,up on directional pad  
+• T    : s[T]art  
+• S    : [S]elect  
+• BAYX : four thumb buttons  
+• WE   : left[West],right[East] triggers  
+• G    : debu[G] (I don't know what this does - some DeSmuME thing)  
 Each mentioned button will be pushed at the same time.  
   
-#### Wait Instructions  
+#### Wait Instruction  
 Example : _  
-Example : __  
-One or two underscores.  
+One underscore.  
 • _ : wait for one frame, not sending any inputs whatsoever  
-• __ : wait for preset amount of frames, defaults to 1 until set with the #wst long instruction  
   
 ---  
   
 ### Long Instructions  
   
-#### Draw A Line On The Touchsreen  
-Example : @lin [68,68] [158,68]  
-Draws a line from the start [x:0-255,y:0-191] to the end [x:0-255,y:0-191]. Northwest corner of the touchscreen is [0,0]. Buffers wait frames before and after the drawing instructions. No intermediate frames - starts at first point, immediately jumps to last point.  
+#### Stylus Up/Down At Specified Position  
+Example : @sty[60,60,1]  
+Send a stylus command for the touchscreen at the [x:0-255,y:0-191,z:0-1] point. Northwest corner of the touchscreen is [0,0]. Pressing gives a z value of 1, not using the stylus gives a z value of 0.  
   
-#### Tap The Touchscreen  
-Example : @tap [60,60]  
-Taps the touchscreen at the [x:0-255,y:0-191] point. Northwest corner of the touchscreen is [0,0]. Buffers wait frames before and after the drawing instructions.  
-  
-#### Stylus Up At Specified Position  
-Example : @sup [60,60]  
-Send a raw stylus-up command for the touchscreen at the [x:0-255,y:0-191] point. Northwest corner of the touchscreen is [0,0]. No buffer frames, literally generates one command - used for TAS optimizations.  
-  
-#### Stylus Down At Specified Position  
-Example : @sdn [60,60]  
-Send a raw stylus-down command for the touchscreen at the [x:0-255,y:0-191] point. Northwest corner of the touchscreen is [0,0]. No buffer frames, literally generates one command - used for TAS optimizations.  
-  
-#### Input A Raw .dsm Command  
-Example : @raw |0|.......A.....147 065 1|  
-Send a raw command, in .dsm format.  
+#### Manually Control All Signals For A Frame  
+Example : @all[0][AU][147,065,1]  
+Send any combination of signals. Box 1 is the c flag, box 2 is the button list, box 3 is stylus information.  
   
 #### Reset The Console  
 Example : @rst  
 Reset the console. [!!!] Not sure whether this is a soft or hard reset.  
   
-#### Set The Long-Wait Frame Count  
-Example : #wst 15  
-Sets the internal variable that controls how long the Long-Wait __ command waits, in frames. This variable defaults to 1 until set. Can be set any number of times, effects only the Long-Wait instructions following it.  
-  
 #### Breakpoint Labels  
-Example : #lbl B1F_Encounter_23_START  
-Sets an internal variable to mark this point in code. After compiling, the tool will inform you of the frame number that each label exists on. The compiler will automatically insert a START and END breakpoint for your convenience. Label names cannot contain spaces nor double quote marks.  
+Example : #lbl[B1F_Encounter_23_START]  
+Sets an internal variable to mark this point in code. After compiling, the tool will inform you of the frame number that each label exists on. The compiler will automatically insert a START and END breakpoint for your convenience. Label names may only contain uppercase and lowercase letters, numbers, and underscores.  
+  
+#### Defining Functions  
+Example : #fxn[new_game]  
+Creates/resets a code bin with the given name, will write future lines to that bin. Function names may only contain uppercase and lowercase letters, numbers, and underscores.  
+  
+#### Calling Functions  
+Example : #cal[new_game]  
+Calls a defined function/routine. Inserts code from the corresponding code bin to this point in the file. Function names may only contain uppercase and lowercase letters, numbers, and underscores.  
   
 ---  
   
 ### Loops  
 Example : 60{A _}  
-Example : 60{10{A _} _}  
-Runs whatever is inside of the curly braces the specified number of times.  
+Example : 12{_}  
+Runs whatever is inside of the curly braces the specified number of times. [!!!] Currently, only single-level[non-nested] loops are supported for the sake of ease of implementation.  
   
 ---  
   
