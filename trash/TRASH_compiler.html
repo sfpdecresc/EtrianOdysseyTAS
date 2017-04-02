@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Etrian TAS Translator</title>
+<meta charset="UTF-8">
+<script>
+var p = {
+	counterN : 0,
+	replacePosWithChar : function(s,posN,charS){return s.substr(0,posN) + charS + s.substr(posN + charS.length);},
+	log : function(m){
+		document.querySelector(".log").value = m.toString()+"\n"+document.querySelector(".log").value;},
+	buildLine : function(o={}){
+		if (typeof o.buttonSA === "undefined"){o.buttonSA = [];}
+		if (typeof o.xN       === "undefined"){o.xN       = null;}
+		if (typeof o.yN       === "undefined"){o.yN       = null;}
+		if (typeof o.stylusF  === "undefined"){o.stylusF  = false;}
+		if (typeof o.micF     === "undefined"){o.micF     = false;}
+		if (typeof o.resetF   === "undefined"){o.resetF   = false;}
+		if (typeof o.lidF     === "undefined"){o.lidF     = false;}
+		//....
+		var resS = "|0|.............000 000 0|";
+		resS = this.replacePosWithChar(resS,1,((o.micF?1:0)+(o.resetF?2:0)+(o.lidF?4:0)).toString().substr(0,1));
+		if (o.buttonSA.includes("r")){resS = this.replacePosWithChar(resS, 3,"R");}
+		if (o.buttonSA.includes("l")){resS = this.replacePosWithChar(resS, 4,"L");}
+		if (o.buttonSA.includes("d")){resS = this.replacePosWithChar(resS, 5,"D");}
+		if (o.buttonSA.includes("u")){resS = this.replacePosWithChar(resS, 6,"U");}
+		if (o.buttonSA.includes("L")){resS = this.replacePosWithChar(resS, 7,"W");} // west trigger
+		if (o.buttonSA.includes("R")){resS = this.replacePosWithChar(resS, 8,"E");} // east trigger
+		if (o.buttonSA.includes("B")){resS = this.replacePosWithChar(resS, 9,"B");}
+		if (o.buttonSA.includes("A")){resS = this.replacePosWithChar(resS,10,"A");}
+		if (o.buttonSA.includes("Y")){resS = this.replacePosWithChar(resS,11,"Y");}
+		if (o.buttonSA.includes("X")){resS = this.replacePosWithChar(resS,12,"X");}
+		if (o.buttonSA.includes("T")){resS = this.replacePosWithChar(resS,13,"T");} // sTart
+		if (o.buttonSA.includes("S")){resS = this.replacePosWithChar(resS,14,"S");} // Select
+		if (o.buttonSA.includes("G")){resS = this.replacePosWithChar(resS,15,"G");} // debuG
+		// 0-255 0-191
+		if (o.xN !== null){
+			var xS = o.xN.toString();
+			while (xS.length < 3){xS = "0"+xS;}
+			resS = this.replacePosWithChar(resS,16,xS[xS.length-3]);
+			resS = this.replacePosWithChar(resS,17,xS[xS.length-2]);
+			resS = this.replacePosWithChar(resS,18,xS[xS.length-1]);}
+		if (o.yN !== null){
+			var yS = o.yN.toString();
+			while (yS.length < 3){yS = "0"+yS;}
+			resS = this.replacePosWithChar(resS,20,yS[yS.length-3]);
+			resS = this.replacePosWithChar(resS,21,yS[yS.length-2]);
+			resS = this.replacePosWithChar(resS,22,yS[yS.length-1]);}
+		if (o.stylusF === true){
+			resS = this.replacePosWithChar(resS,24,"1");}
+		return resS;
+	},
+	translate : function(inS){
+		var resS = "";
+		// this line must exist at the front of the file, all others are optional
+		resS += "version 1\n";
+		resS += "--------------------------\n";
+		// some info on what this .dsm is
+		resS += "Etrian Odyssey (North America)\n";
+		resS += "Programmable Tool-Assisted Speedrun\n";
+		resS += "DeSmuME v0.9.11\n";
+		resS += "--------------------------\n";
+		// recommended[by desmume] flags
+		resS += "rtcStartNew 2020-JAN-01 00:00:00:000\n";
+		resS += "useExtBios 0\n";
+		resS += "advancedTiming 1\n";
+		resS += "useExtFirmware 0\n";
+		resS += "--------------------------\n";
+		//|0|RLDUTSBAYXWEGxxx yyy s|
+		
+		// add START and END breakpoint label
+		inS = "#lbl TAS_START\n"+inS+"\n#lbl TAS_END";
+		
+		// remove comments
+		inS = inS.replace(/\/\/.*$/gm,function(matchS,offsetN,stringS){return "";});
+		
+		// long instructions
+		// line
+		inS = inS.replace(/@lin\s*\[\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\]\s*\[\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\]/gm,(function(that){return function(matchS,p1S,p2S,p3S,p4S,offsetN,stringS){
+			var resS = "";
+			resS += "resS+=\""+that.buildLine({xN:parseInt(p1S),yN:parseInt(p2S),stylusF:false})+"\\n\";frameElapsedN++;";
+			resS += "resS+=\""+that.buildLine({xN:parseInt(p1S),yN:parseInt(p2S),stylusF:true})+"\\n\";frameElapsedN++;";
+			resS += "resS+=\""+that.buildLine({xN:parseInt(p3S),yN:parseInt(p4S),stylusF:true})+"\\n\";frameElapsedN++;";
+			resS += "resS+=\""+that.buildLine({xN:parseInt(p3S),yN:parseInt(p4S),stylusF:false})+"\\n\";frameElapsedN++;";
+			return resS;};}(this)));
+		// tap
+		inS = inS.replace(/@tap\s*\[\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\]/gm,(function(that){return function(matchS,p1S,p2S,offsetN,stringS){
+			var resS = "";
+			resS += "resS+=\""+that.buildLine({xN:parseInt(p1S),yN:parseInt(p2S),stylusF:false})+"\\n\";frameElapsedN++;";
+			resS += "resS+=\""+that.buildLine({xN:parseInt(p1S),yN:parseInt(p2S),stylusF:true})+"\\n\";frameElapsedN++;";
+			resS += "resS+=\""+that.buildLine({xN:parseInt(p1S),yN:parseInt(p2S),stylusF:false})+"\\n\";frameElapsedN++;";
+			return resS;};}(this)));
+		// stylus up
+		inS = inS.replace(/@sup\s*\[\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\]/gm,(function(that){return function(matchS,p1S,p2S,offsetN,stringS){
+			var resS = "";
+			resS += "resS+=\""+that.buildLine({xN:parseInt(p1S),yN:parseInt(p2S),stylusF:false})+"\\n\";frameElapsedN++;";
+			return resS;};}(this)));
+		// stylus down
+		inS = inS.replace(/@sdn\s*\[\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\]/gm,(function(that){return function(matchS,p1S,p2S,offsetN,stringS){
+			var resS = "";
+			resS += "resS+=\""+that.buildLine({xN:parseInt(p1S),yN:parseInt(p2S),stylusF:true})+"\\n\";frameElapsedN++;";
+			return resS;};}(this)));
+		// raw
+		inS = inS.replace(/@raw\s*(\|(\d)\|([R\.])([L\.])([D\.])([U\.])([T\.])([S\.])([B\.])([A\.])([Y\.])([X\.])([W\.])([E\.])(.{1})(\d{3})\s(\d{3})\s([01])\|)/gm,(function(that){return function(matchS,p1S,offsetN,stringS){
+			var resS = "";
+			resS += "resS+=\""+p1S+"\\n\";frameElapsedN++;";
+			return resS;};}(this)));
+		// reset
+		inS = inS.replace(/@rst/gm,(function(that){return function(matchS,p1S,offsetN,stringS){
+			var resS = "";
+			resS += "resS+=\""+that.buildLine({resetF:true})+"\\n\";frameElapsedN++;";
+			return resS;};}(this)));
+		// wait set
+		inS = inS.replace(/#wst\s+(\d+)/gm,(function(that){return function(matchS,p1S,offsetN,stringS){
+			var resS = "";
+			resS += "waitN="+p1S+";";
+			return resS;};}(this)));
+		// label
+		inS = inS.replace(/#lbl\s+([^\\"\s]+)/gm,(function(that){return function(matchS,p1S,offsetN,stringS){
+			var resS = "";
+			resS += "labelO[\""+p1S+"\"]=frameElapsedN;";
+			return resS;};}(this)));
+		
+		// short instructions
+		// long wait
+		inS = inS.replace(/__/gm,(function(that){return function(matchS,p1S,offsetN,stringS){
+			var resS = "";
+			resS += "for(i=0;i<waitN;i++){"
+			resS += "resS+=\""+that.buildLine({buttonSA:""})+"\\n\";frameElapsedN++;";
+			resS += "}";
+			return resS;};}(this)));
+		inS = inS.replace(/([rlduLRBAYXTSG_]+)(?=\s|\}|$)/gm,(function(that){return function(matchS,p1S,offsetN,stringS){
+			var resS = "";
+			resS += "resS+=\""+that.buildLine({buttonSA:p1S.split("")})+"\\n\";frameElapsedN++;";
+			return resS;};}(this)));
+		// loop start
+		inS = inS.replace(/(\d+)\s*\{/gm,(function(that){return function(matchS,p1S,offsetN,stringS){that.counterN++;
+			var resS = "";
+			resS += "for(i"+that.counterN.toString()+"=0;i"+that.counterN.toString()+"<"+p1S+";i"+that.counterN.toString()+"++){"
+			return resS;};}(this)));
+		/*inS = inS.replace(/([rlduLRBAYXsS_]+)([\s}]*)$/gm,(function(that){return function(matchS,p1S,p2S,offsetN,stringS){
+			var resS = "";
+			resS += "resS+=\""+that.buildLine({buttonSA:p1S.split("")})+"\\n\";frameElapsedN++;";
+			resS += p2S;
+			return resS;};}(this)));*/
+		
+		var preS = "var waitN=1,frameElapsedN=0,labelO={},resS=\"\"";
+		for (i = 1; i <= this.counterN.toString(); i++){
+			preS += ",i"+i.toString();}
+		preS += ";"
+		var codeS = preS+inS+"resS;";
+		
+		console.log(codeS);
+		resS += eval(codeS).trim();
+		/*try {
+			resS += eval("var resS=\"\";"+inS+"resS;");}
+		catch(e){
+			this.log(e);}*/
+		var labelS = "";
+		for (var kA = Object.keys(labelO),kAI = 0,kAC = kA.length; kAI < kAC; kAI++){var k = kA[kAI];var v = labelO[k];
+			labelS += k+" : "+v.toString()+"\n";}
+		return {resS,labelS,codeS};
+	},
+};
+document.addEventListener("DOMContentLoaded",function(event){
+	var pumpFxn = function(){
+		var packageE = p.translate(document.querySelector(".chunk.in>.display").value);
+		document.querySelector(".chunk.out>.display").textContent = packageE.resS;
+		document.querySelector(".chunk.log>.display").textContent = packageE.labelS;
+		document.querySelector(".chunk.js >.display").textContent = packageE.codeS;};
+	var elL = document.querySelectorAll(".trigger");
+	for (var elLI = 0,elLC = elL.length; elLI < elLC; elLI++){var el = elL[elLI];
+		el.addEventListener("click",pumpFxn);}
+});
+window.addEventListener("beforeunload",function(event){
+	if (document.querySelector(".chunk.in>.display").value.length === 0 && document.querySelector(".chunk.out>.display").value.length === 0){return;}
+	var confirmationMessage = "There's text in these boxes. If you leave/reload this page, you will lose that text.";
+	event.returnValue = confirmationMessage;
+	return confirmationMessage;
+});
+</script>
+<style>
+* {font-family:monospace;box-sizing:border-box;}
+body {color:white;background-color:hsla(120,100%,7.5%,1);font-size:16px;padding:0px;margin:10px;}
+textarea,button {padding:6px;margin:0px;outline:none;}
+textarea      {color:white;background-color:black;border:1px solid hsla(120,100%,15%,1);white-space:nowrap;overflow:auto;resize:none;}
+button        {color:white;background-color:black;border:1px solid hsla(120,100%,20%,1);cursor:pointer;}
+button        {background-color:hsla(120,100%, 0%,1);}
+button:hover  {background-color:hsla(120,100%,10%,1);}
+button:focus  {background-color:hsla(120,100%,10%,1);}
+button:active {background-color:hsla(120,100%,20%,1);}
+.note {}
+.chunk {display:inline-block;width:200px;}
+.chunk.in  {width:300px;}
+.chunk.out {width:200px;}
+.chunk.log {width:200px;}
+.chunk.js  {width:300px;}
+.chunk>.trigger {display:block;width:100%;height:30px;font-size:16px;}
+.chunk>.title {font-size:24px;}
+.chunk>.display {width:100%;height:600px;}
+</style>
+</head>
+<body>
+<div class="note">This page is intended for use in Google Chrome.</div>
+<div class="chunk in">
+	<button class="trigger">translate</button>
+	<div class="title">Input</div>
+	<textarea class="display"></textarea>
+</div>
+<div class="chunk out">
+	<button class="trigger">translate</button>
+	<div class="title">Output</div>
+	<textarea class="display"></textarea>
+</div>
+<div class="chunk log">
+	<button class="trigger">translate</button>
+	<div class="title">Breakpoints</div>
+	<textarea class="display"></textarea>
+</div>
+<div class="chunk js">
+	<button class="trigger">translate</button>
+	<div class="title">Trans-JS</div>
+	<textarea class="display"></textarea>
+</div>
+</body>
+</html>
