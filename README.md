@@ -38,9 +38,9 @@ A consecutive grouping of one or more of the following letters : RLDUTSBAYXWEG.
 Each mentioned button will be pushed at the same time.  
   
 #### Wait Instruction  
-Example : _  
+Example : \_  
 One underscore.  
-• _ : wait for one frame, not sending any inputs whatsoever  
+• \_ : wait for one frame, not sending any inputs whatsoever  
   
 ---  
   
@@ -73,8 +73,8 @@ Calls a defined function/routine. Inserts code from the corresponding code bin t
 ---  
   
 ### Loops  
-Example : 60{A _}  
-Example : 12{_}  
+Example : 60{A \_}  
+Example : 12{\_}  
 Runs whatever is inside of the curly braces the specified number of times. [!!!] Currently, only single-level[non-nested] loops are supported for the sake of ease of implementation.  
   
 ---  
