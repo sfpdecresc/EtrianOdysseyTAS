@@ -64,6 +64,8 @@ class P{
 // get command-line arguments
 //........................................................................................................................
 if (!isset($argv[1])){echo "please specify output TAS .dsm file as first argument".PHP_EOL;die;}
+// mainly to prevent accidental argument reversal
+if (substr($argv[1],mb_strlen($argv[1])-4) !== ".dsm"){echo "please specify output TAS .dsm file as first argument".PHP_EOL;die;}
 if (count(getopt("h",["help"])) >= 1){
 	echo "Usage: php -f compiler.php <output_file> <input_file>...".PHP_EOL;
 	echo "       php -f compiler.php -- --help".PHP_EOL;
