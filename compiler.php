@@ -1,13 +1,16 @@
 <?
 class P{
-	// when in doubt, return TRUE ; only return FALSE when absolutely certain nothing funny will happen
-	public static function is_path_breaker($m){
-		if (!is_string($m)){return TRUE;}
-		if ($m === ""  ){return TRUE;}
-		if ($m === "." ){return TRUE;}
-		if ($m === ".."){return TRUE;}
-		if (preg_match('/^[a-zA-Z_][a-zA-Z0-9_\.]*$/',$m) !== 1){return TRUE;}
-		return FALSE;}
+	// when in doubt, return FALSE ; only return TRUE when absolutely certain nothing funny will happen
+	public static function is_okay_path($m){
+		if (!is_string($m)){return FALSE;}
+		if ($m === ""  ){return FALSE;}
+		if ($m === "." ){return FALSE;}
+		if ($m === ".."){return FALSE;}
+		// starts with a usual character
+		// can also contain slashes and dots as long as there are never two dots side by side
+		if (preg_match('/^[a-zA-Z0-9_][a-zA-Z0-9_\.\/]*$/',$m) !== 1){return FALSE;}
+		if (preg_match('/\.\./',$m) === 1){return FALSE;}
+		return TRUE;}
 	public static function repl($regexS,$replaceFxn){global $inS;
 		$inS = preg_replace_callback($regexS,$replaceFxn,$inS);}
 	public static function error($s){global $writeBinA;
@@ -78,7 +81,7 @@ if (count(getopt("h",["help"])) >= 1){
 	die;}
 if (!isset($argv[2])){echo "please specify at least one input TAS .txt file starting with the second argument".PHP_EOL;die;}
 for ($argvI = 0; $argvI < $argc; $argvI++){
-	if (P::is_path_breaker($argv[$argvI])){echo "please don't use a path-breaker path, just the filename in the current directory - sorry".PHP_EOL;die;}}
+	if (!P::is_okay_path($argv[$argvI])){echo "please don't use a path-breaker path, just the filename in the current directory - sorry".PHP_EOL;die;}}
 
 
 
