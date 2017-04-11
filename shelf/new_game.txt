@@ -1,0 +1,37 @@
+// Etrian Odyssey (North America)
+// Programmable Tool-Assisted Speedrun
+
+// NEW GAME ------------------------------
+#fxn[new_game]
+
+// intro fade in
+327{_} A
+
+// options
+113{_} D
+    _  A
+
+// delete data
+ 81{_} U
+    _  A
+ 16{_} L
+    _  A
+ 12{_} L
+    _  A
+187{_} A
+
+// text speed to "no wait"
+ 11{_} D
+    _  D
+    _  D
+    _  D
+    _  A
+ 10{_} R
+    _  R
+    _  A
+    _  B
+    _  A
+
+// new game
+ 82{_} D
+    _  A

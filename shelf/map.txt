@@ -1,0 +1,13 @@
+// Etrian Odyssey (North America)
+// Programmable Tool-Assisted Speedrun
+
+// DRAWING A MAP -------------------------
+#fxn[map_scrollnorth] @sty[005,050,1]
+#fxn[map_scrolleast]  @sty[145,005,1]
+#fxn[map_scrollsouth] @sty[005,145,1]
+#fxn[map_scrollwest]  @sty[050,005,1]
+
+#fxn[map_pencil]  @sty[200,030,1]
+#fxn[map_eraser]  @sty[220,030,1]
+#fxn[map_brush]   @sty[200,050,1]
+#fxn[map_scraper] @sty[220,050,1]
