@@ -136,12 +136,6 @@
  23{_} B
     _  A
 
-// save
- 81{_} D
-    _  D
-    _  A
-#die
-
 // to the forest
  81{_} D
     _  A
