@@ -10,7 +10,7 @@ This is a simple programming language that compiles to DeSmuME's .dsm file. You 
 
 ## Compiling Code In Your Command-Line Interface  
 (1) Have PHP installed (as far as I know, Apple OSs have PHP installed by default).  
-(2) Example : cd ~/Documents/EtrianOdysseyTAS/ && php -f compiler.php mappingPercentTAS.dsm library1.txt mappingPercentTAS.txt (first argument is output name, following arguments are code files, combined in left-to-right order)  
+(2) Example : cd ~/Documents/EtrianOdysseyTAS/ && php -f compiler.php somename.dsm shelf/library1.txt main.txt (first argument is output name, following arguments are code files, combined in left-to-right order) (another example can be found in shellScript.txt)  
   
 ## Notes And Warnings  
 • Debugging a TAS in DeSmuME can be difficult. On the Apple OS versions, there's a handy little Execution Control window. There's a command called "Jump to frame number:". Its name is misleading. Think of it as "Fast-forward up until just before frame number:". If you load a TAS and then jump 1000 frames, DeSmuME will run the first 1000 input frames as fast as possible and then drop you off immediately before frame 1000. Use the #lbl instruction in your code to figure out where your breakpoints will be, pause the emulator, jump to that spot, and start debugging.  
