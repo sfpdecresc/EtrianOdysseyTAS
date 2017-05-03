@@ -109,10 +109,20 @@ $outSA[] = "Programmable Tool-Assisted Speedrun";
 $outSA[] = "DeSmuME v0.9.11";
 $outSA[] = "--------------------------";
 // recommended[by desmume] flags
-$outSA[] = "rtcStartNew 2020-JAN-01 00:00:00:000";
+$outSA[] = "emuVersion 91100";
+$outSA[] = "romChecksum 7F723E35";
+$outSA[] = "romSerial NTR-AKYE-USA";
+$outSA[] = "guid B3E28C55-1747-9811-2F54-112D0558F56B";
 $outSA[] = "useExtBios 0";
 $outSA[] = "advancedTiming 1";
 $outSA[] = "useExtFirmware 0";
+$outSA[] = "firmNickname EOTAS";
+$outSA[] = "firmMessage EOI is best";
+$outSA[] = "firmFavColour 7";
+$outSA[] = "firmBirthMonth 1";
+$outSA[] = "firmBirthDay 1";
+$outSA[] = "firmLanguage 1";
+$outSA[] = "rtcStartNew 2020-JAN-01 00:00:00:000";
 $outSA[] = "--------------------------";
 
 
