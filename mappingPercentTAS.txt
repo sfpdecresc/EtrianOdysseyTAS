@@ -7,172 +7,173 @@
 #cal[new_game]
 
 // mash through lore
- 84{_} A
-    _  A
-    _  A
-    _  A
-    _  A
-    _  A
-    _  A
-    _  A
+A     _
+A     _
+A     _
+A     _
+A     _
+A     _
+A     _
+A 256{_}
 
 // enter guild
-251{_} A
+A 242{_}
 
 // mash through talking
-239{_} A
-    _  A
-    _  A
-    _  A
-    _  A
- 17{_} A
- 12{_} A
-    _  A
+A    _
+A    _
+A    _
+A    _
+A 17{_}
+A 12{_}
+A    _
+A 76{_}
 
 // type guild name
- 76{_} #cal[keyboard_cap]
-    _  #cal[keyboard_e]
-    _  #cal[keyboard_o]
-    _  #cal[keyboard_t]
-    _  #cal[keyboard_a]
-    _  #cal[keyboard_s]
-    _  #cal[keyboard_ent]
-  5{_} A
+#cal[keyboard_cap]   _
+#cal[keyboard_e]     _
+#cal[keyboard_o]     _
+#cal[keyboard_t]     _
+#cal[keyboard_a]     _
+#cal[keyboard_s]     _
+#cal[keyboard_ent] 5{_}
+A 113{_}
 
 // mash through talking
-112{_} A
-  4{_} A
-    _  A
-    _  A
-    _  A
-    _  A
+A 4{_}
+A _
+A _
+A _
+A _
+A 23{_}
 
 // register adventurer
- 23{_} A
- 88{_} #cal[keyboard_s]
-    _  #cal[keyboard_f]
-    _  #cal[keyboard_p]
-    _  #cal[keyboard_ent]
+A                       88{_}
+#cal[keyboard_s]           _
+#cal[keyboard_f]           _
+#cal[keyboard_p]           _
+#cal[keyboard_ent]      58{_}
 #cal[regadv_protector2]
 
 // another
-  5{_} A
- 38{_} #cal[keyboard_shf]
-    _  #cal[keyboard_d]
-    _  #cal[keyboard_h]
-    _  #cal[keyboard_r]
-    _  #cal[keyboard_cap]
-    _  #cal[keyboard_g]
-    _  #cal[keyboard_r]
-    _  #cal[keyboard_ent]
+A                   38{_}
+#cal[keyboard_shf]     _
+#cal[keyboard_d]       _
+#cal[keyboard_h]       _
+#cal[keyboard_r]       _
+#cal[keyboard_cap]     _
+#cal[keyboard_g]       _
+#cal[keyboard_r]       _
+#cal[keyboard_ent]  58{_}
 #cal[regadv_medic3]
 
 // another
-  5{_} A
- 38{_} #cal[keyboard_shf]
-    _  #cal[keyboard_r]
-    _  #cal[keyboard_o]
-    _  #cal[keyboard_s]
-    _  #cal[keyboard_a]
-    _  #cal[keyboard_e]
-    _  #cal[keyboard_l]
-    _  #cal[keyboard_ent]
+A                        38{_}
+#cal[keyboard_shf]          _
+#cal[keyboard_r]            _
+#cal[keyboard_o]            _
+#cal[keyboard_s]            _
+#cal[keyboard_a]            _
+#cal[keyboard_e]            _
+#cal[keyboard_l]            _
+#cal[keyboard_ent]       58{_}
 #cal[regadv_darkhunter3]
 
 // no more
-  5{_} R
-    _  A
+R _
+A 95{_}
 
 // formation
- 94{_} D
-    _  D
-    _  A
+D    _
+D    _
+A 28{_}
 // p1
- 28{_} A
-  9{_} A
+A  9{_}
+A  9{_}
 // p2
-  9{_} A
-  9{_} A
+A 10{_}
+A  9{_}
 // p3
-  9{_} A
-  9{_} A
+A 10{_}
+A 11{_}
+
 // confirm
- 10{_} R
-    _  U
-    _  U
-    _  U
-    _  A
- 23{_} A
+R _
+U _
+U _
+U _
+A 23{_}
+A 17{_}
 
 // leave
- 17{_} B
-    _  A
+B    _
+A 29{_}
 // [!] first-time warning for small formation
- 29{_} A
-    _  A
-    _  A
+A    _
+A    _
+A 94{_}
 
 // go to Radha Hall to solicit
- 91{_} D
-    _  A
-250{_} A
-    _  A
-    _  A
-    _  A
- 24{_} A
+D     _
+A 253{_}
+A     _
+A     _
+A     _
+A  24{_}
+A  23{_}
 // accept mission
- 23{_} A
- 23{_} A
- 19{_} A
-  5{_} A
- 29{_} A
-    _  A
-    _  A
-    _  A
- 12{_} A
- 17{_} A
+A 23{_}
+A 19{_}
+A  5{_}
+A 29{_}
+A    _
+A    _
+A    _
+A 12{_}
+A 17{_}
+A 23{_}
 
 // leave
- 23{_} B
-    _  A
+B    _
+A 83{_}
 
 // to the forest
- 81{_} D
-    _  A
-217{_} A
+D     _
+A 221{_}
+A 502{_}
 
 // draw BF1 map
-489{_} @sty[027,067,1]
- 71{_} @sty[102,084,1]
-       @sty[101,084,1]
-       @sty[084,084,1]
-       @sty[066,084,1]
-       @sty[046,084,1]
-       @sty[047,101,1]
-       @sty[047,117,1]
-       @sty[047,137,1]
-       @sty[047,154,1]
-       @sty[047,174,1]
-       @sty[030,173,1]
-       @sty[030,154,1]
-       @sty[030,136,1]
-       @sty[030,118,1]
-       @sty[030,098,1]
-       @sty[030,065,1]
-       @sty[047,065,1]
-       @sty[065,065,1]
-       @sty[085,065,1]
-       @sty[101,065,1]
-    _  #cal[map_brush]
-    _  @sty[091,073,1]
-       @sty[091,073,1]
-       @sty[075,075,1]
-       @sty[056,075,1]
-       @sty[038,076,1]
-       @sty[037,087,1]
-       @sty[037,109,1]
-       @sty[038,125,1]
-       @sty[040,146,1]
+@sty[027,067,1] 71{_}
+@sty[102,084,1]
+@sty[101,084,1]
+@sty[084,084,1]
+@sty[066,084,1]
+@sty[046,084,1]
+@sty[047,101,1]
+@sty[047,117,1]
+@sty[047,137,1]
+@sty[047,154,1]
+@sty[047,174,1]
+@sty[030,173,1]
+@sty[030,154,1]
+@sty[030,136,1]
+@sty[030,118,1]
+@sty[030,098,1]
+@sty[030,065,1]
+@sty[047,065,1]
+@sty[065,065,1]
+@sty[085,065,1]
+@sty[101,065,1] _
+#cal[map_brush] _
+@sty[091,073,1]
+@sty[091,073,1]
+@sty[075,075,1]
+@sty[056,075,1]
+@sty[038,076,1]
+@sty[037,087,1]
+@sty[037,109,1]
+@sty[038,125,1]
+@sty[040,146,1]
 
 //----------------------------------------
 #die
