@@ -1,9 +1,6 @@
 # EtrianOdysseyTAS  
 Etrian Odyssey I TAS Programming Language  
   
-## WARNING  
-I just changed what the emulator settings should be, and now the .dsm file isn't synced properly. If you want it to sync properly for the time being [until I re-optimize the TAS], use dynamic recompiling and set the block size to 100.  
-  
 ## What Is It?  
 This is a simple programming language that compiles to DeSmuME's .dsm file. You write some code in this language, then compile it with the PHP tool, saving the output as a .dsm file that you then load into DeSmuME with Etrian Odyssey I running.  
   
