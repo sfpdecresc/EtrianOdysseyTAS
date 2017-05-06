@@ -5,7 +5,9 @@
 #fxn[load_game]
 
 // intro fade in
-327{_} A
+  330{_}
+A 113{_}
 
 // load game
-113{_} A
+// !!! how long to wait?
+A

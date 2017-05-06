@@ -5,33 +5,34 @@
 #fxn[new_game]
 
 // intro fade in
-327{_} A
+  330{_}
+A 113{_}
 
 // options
-113{_} D
-    _  A
+D    _
+A 81{_}
 
 // delete data
- 81{_} U
-    _  A
- 16{_} L
-    _  A
- 12{_} L
-    _  A
-187{_} A
+U     _
+A  16{_}
+L     _
+A  12{_}
+L     _
+A 188{_}
+A  11{_}
 
 // text speed to "no wait"
- 11{_} D
-    _  D
-    _  D
-    _  D
-    _  A
- 10{_} R
-    _  R
-    _  A
-    _  B
-    _  A
+D    _
+D    _
+D    _
+D    _
+A 10{_}
+R    _
+R    _
+A    _
+B    _
+A 82{_}
 
 // new game
- 82{_} D
-    _  A
+D    _
+A 85{_}
