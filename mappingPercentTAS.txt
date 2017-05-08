@@ -48,7 +48,7 @@ A _
 A 23{_}
 
 // register adventurer
-A                       88{_}
+A                       91{_}
 #cal[keyboard_s]           _
 #cal[keyboard_f]           _
 #cal[keyboard_p]           _
@@ -115,7 +115,7 @@ A 94{_}
 
 // go to Radha Hall to solicit
 D     _
-A 253{_}
+A 257{_}
 A     _
 A     _
 A     _
@@ -135,568 +135,261 @@ A 23{_}
 
 // leave
 B    _
-A 83{_}
+A 86{_}
 
 // to the forest
 D     _
-A 221{_}
-A 502{_}
+A 222{_}
+A 504{_}
 
 // draw BF1 map
-@sty[027,067,1] 71{_}
-@sty[102,084,1]
-@sty[101,084,1]
-@sty[084,084,1]
-@sty[066,084,1]
-@sty[046,084,1]
-@sty[047,101,1]
-@sty[047,117,1]
-@sty[047,137,1]
-@sty[047,154,1]
-@sty[047,174,1]
-@sty[030,173,1]
-@sty[030,154,1]
-@sty[030,136,1]
-@sty[030,118,1]
-@sty[030,098,1]
-@sty[030,065,1]
-@sty[047,065,1]
-@sty[065,065,1]
-@sty[085,065,1]
-@sty[101,065,1] _
-#cal[map_brush] _
-@sty[091,073,1]
-@sty[091,073,1]
-@sty[075,075,1]
-@sty[056,075,1]
-@sty[038,076,1]
-@sty[037,087,1]
-@sty[037,109,1]
-@sty[038,125,1]
-@sty[040,146,1]
+// the requirement appears to be [correctWalls + correctTiles - incorrectWalls - incorrectTiles ≥ someConstant]
+#cal[map_zoom_bc12]
 
-//----------------------------------------
-#die
-// here be dragons
+// BC-12
+_ #cal[map_pencil]
+#cal[map_05_06]
+#cal[map_02_06]
+#cal[map_02_01]
+#cal[map_01_01]
+#cal[map_01_07]
+#cal[map_05_07]
+_ #cal[map_pencil]
+#cal[map_08_07]
+#cal[map_10_07]
+_ #cal[map_pencil]
+#cal[map_08_06]
+#cal[map_10_06]
+_ #cal[map_brush]
+#cal[map_b_b]
+#cal[map_b_c]
+#cal[map_b_d]
+#cal[map_b_e]
+#cal[map_b_f]
+#cal[map_b_g]
+#cal[map_c_g]
+#cal[map_d_g]
+#cal[map_e_g]
+#cal[map_i_g]
+#cal[map_j_g]
 
-19{_}
-@sty[042,074,1]
-@sty[041,091,1]
-@sty[038,114,1]
-@sty[037,130,1]
-@sty[038,144,1]
-@sty[038,163,1]
-@sty[165,073,1]
-@sty[181,074,1]
-_
-3{@sty[149,003,1]}
-63{_}
-3{@sty[109,076,1]}
-@sty[112,076,1]
-@sty[130,077,1]
-@sty[147,077,1]
-@sty[166,075,1]
-@sty[181,075,1]
-@sty[127,077,1]
-@sty[106,078,1]
-@sty[127,105,1]
-@sty[146,106,1]
-@sty[162,108,1]
-@sty[179,110,1]
-_
-@sty[202,029,1]
-_
-2{@sty[065,065,1]}
-@sty[083,065,1]
-@sty[100,065,1]
-@sty[119,066,1]
-@sty[138,065,1]
-@sty[155,066,1]
-@sty[173,065,1]
-@sty[191,065,1]
-@sty[066,084,1]
-@sty[083,082,1]
-@sty[101,083,1]
-@sty[120,082,1]
-@sty[138,083,1]
-@sty[155,083,1]
-@sty[173,082,1]
-@sty[191,083,1]
-@sty[120,101,1]
-@sty[136,100,1]
-@sty[156,101,1]
-@sty[174,101,1]
-@sty[191,100,1]
-@sty[120,118,1]
-@sty[137,118,1]
-@sty[155,117,1]
-@sty[173,118,1]
-@sty[191,119,1]
-_
-5{@sty[149,003,1]}
-36{_}
-A
-31{_}
-@sty[101,063,1]
-426{_}
-14{U}
-8{_}
-3{@sty[030,031,1]}
-2{@sty[031,012,1]}
-@sty[029,030,1]
-@sty[029,048,1]
-@sty[030,065,1]
-@sty[047,065,1]
-@sty[048,082,1]
-@sty[047,100,1]
-@sty[064,101,1]
-@sty[066,119,1]
-@sty[065,137,1]
-@sty[048,137,1]
-@sty[047,120,1]
-@sty[030,119,1]
-@sty[030,137,1]
-@sty[030,157,1]
-@sty[047,156,1]
-@sty[065,155,1]
-@sty[085,156,1]
-@sty[101,156,1]
-@sty[119,155,1]
-@sty[138,155,1]
-@sty[157,155,1]
-@sty[174,156,1]
-@sty[191,156,1]
-_
-2{@sty[083,030,1]}
-2{@sty[084,012,1]}
-@sty[083,027,1]
-@sty[083,047,1]
-@sty[084,065,1]
-@sty[066,065,1]
-@sty[066,083,1]
-@sty[084,084,1]
-@sty[084,101,1]
-@sty[083,118,1]
-@sty[085,138,1]
-@sty[102,136,1]
-@sty[119,137,1]
-@sty[138,138,1]
-@sty[156,137,1]
-@sty[174,137,1]
-@sty[190,137,1]
-_
-@sty[202,049,1]
-_
-@sty[039,022,1]
-@sty[039,024,1]
-@sty[056,024,1]
-@sty[072,023,1]
-@sty[074,038,1]
-@sty[058,040,1]
-@sty[038,039,1]
-@sty[040,058,1]
-@sty[056,057,1]
-@sty[072,057,1]
-@sty[054,075,1]
-@sty[057,093,1]
-@sty[073,092,1]
-@sty[074,111,1]
-@sty[075,127,1]
-@sty[073,145,1]
-@sty[054,148,1]
-@sty[036,147,1]
-@sty[035,131,1]
-@sty[095,147,1]
-@sty[113,143,1]
-@sty[125,143,1]
-@sty[143,143,1]
-@sty[168,146,1]
-@sty[182,147,1]
-@sty[182,090,1]
-@sty[182,110,1]
-@sty[183,057,1]
-@sty[184,037,1]
-@sty[182,021,1]
-_
-7{@sty[006,054,1]}
-32{_}
-25{U}
-@all[0][U][202,031,1]
-U
-@all[0][U][202,031,1]
-6{U}
-@all[0][U][201,032,1]
-U
-@all[0][U][201,032,1]
-2{@all[0][U][030,100,1]}
-@all[0][U][048,100,1]
-@all[0][U][064,101,1]
-@all[0][U][083,101,1]
-U
-4{@all[0][U][144,004,1]}
-70{U}
-2{@sty[083,100,1]}
-@all[0][A][082,117,1]
-@sty[082,135,1]
-@all[0][A][082,154,1]
-@sty[101,154,1]
-@all[0][A][119,154,1]
-@sty[137,155,1]
-@all[0][A][136,136,1]
-@sty[136,136,1]
-@all[0][A][155,136,1]
-@sty[155,153,1]
-@all[0][A][155,153,1]
-@sty[173,154,1]
-@all[0][A][173,154,1]
-@all[0][A][189,154,1]
-@sty[189,154,1]
-@sty[083,100,1]
-@all[0][A][100,101,1]
-@sty[118,101,1]
-@all[0][A][136,101,1]
-@sty[137,118,1]
-@all[0][A][155,119,1]
-@sty[173,120,1]
-@all[0][A][173,137,1]
-@sty[189,136,1]
-U
-@all[0][U][201,048,1]
-U
-@all[0][U][111,110,1]
-@all[0][U][110,112,1]
-@all[0][U][110,124,1]
-@all[0][U][111,142,1]
-@all[0][U][125,142,1]
-@all[0][U][126,132,1]
-@all[0][U][128,116,1]
-@all[0][U][147,129,1]
-@all[0][U][161,131,1]
-@all[0][U][163,141,1]
-@all[0][U][178,144,1]
-U
-4{@all[0][U][004,146,1]}
-70{U}
-2{@all[0][U][111,143,1]}
-@all[0][U][125,144,1]
-@all[0][U][143,146,1]
-@all[0][U][165,145,1]
-@all[0][U][179,144,1]
-@all[0][U][165,129,1]
-@all[0][U][163,110,1]
-@all[0][U][151,111,1]
-@all[0][U][131,111,1]
-@all[0][U][110,110,1]
-@all[0][U][179,109,1]
-U
-@all[0][U][203,029,1]
-U
-2{@all[0][U][102,137,1]}
-@all[0][U][120,137,1]
-@all[0][U][138,138,1]
-@all[0][U][155,137,1]
-@all[0][U][155,118,1]
-@all[0][U][138,118,1]
-@all[0][U][119,118,1]
-@all[0][U][100,118,1]
-@all[0][U][083,117,1]
-@all[0][U][083,101,1]
-@all[0][U][084,084,1]
-@all[0][U][101,083,1]
-@all[0][U][101,101,1]
-@all[0][U][120,101,1]
-@all[0][U][137,102,1]
-@all[0][U][155,101,1]
-@all[0][U][173,100,1]
-@all[0][U][190,101,1]
-@all[0][U][101,155,1]
-@all[0][U][120,155,1]
-@all[0][U][136,154,1]
-@all[0][U][154,156,1]
-@all[0][U][173,155,1]
-@all[0][U][191,156,1]
-_
-9{@all[0][U][143,007,1]}
-60{U}
-3{@all[0][U][101,154,1]}
-@all[0][U][100,137,1]
-@all[0][U][082,137,1]
-@all[0][U][083,119,1]
-@all[0][U][100,118,1]
-@all[0][U][119,120,1]
-@all[0][U][119,102,1]
-@all[0][U][119,083,1]
-@all[0][U][120,065,1]
-@all[0][U][137,066,1]
-@all[0][U][137,083,1]
-@all[0][U][137,101,1]
-@all[0][U][137,116,1]
-@all[0][U][137,136,1]
-@all[0][U][120,136,1]
-@all[0][U][119,154,1]
-@all[0][U][138,155,1]
-@all[0][U][156,156,1]
-@all[0][U][156,136,1]
-@all[0][U][155,119,1]
-@all[0][U][154,101,1]
-@all[0][U][155,083,1]
-@all[0][U][155,064,1]
-@all[0][U][156,047,1]
-@all[0][U][155,029,1]
-@all[0][U][156,012,1]
-@all[0][U][102,099,1]
-@all[0][U][102,083,1]
-@all[0][U][102,066,1]
-@all[0][U][138,029,1]
-@all[0][U][137,012,1]
-@all[0][U][138,029,1]
-@all[0][U][137,046,1]
-@all[0][U][119,046,1]
-@all[0][U][119,028,1]
-@all[0][U][119,015,1]
-@all[0][U][102,045,1]
-@all[0][U][101,030,1]
-@all[0][U][102,013,1]
-@all[0][U][173,137,1]
-@all[0][U][190,137,1]
-@all[0][U][174,136,1]
-@all[0][U][173,119,1]
-@all[0][U][172,101,1]
-@all[0][U][173,083,1]
-@all[0][U][173,062,1]
-@all[0][U][173,045,1]
-@all[0][U][173,029,1]
-@all[0][U][173,011,1]
-@all[0][U][173,028,1]
-3{@all[0][U][173,014,1]}
-U
-@all[0][U][199,046,1]
-U
-@all[0][U][130,143,1]
-@all[0][U][143,144,1]
-@all[0][U][143,128,1]
-@all[0][U][146,113,1]
-@all[0][U][147,092,1]
-@all[0][U][148,072,1]
-@all[0][U][147,055,1]
-@all[0][U][147,036,1]
-@all[0][U][147,016,1]
-@all[0][U][129,144,1]
-@all[0][U][181,124,1]
-@all[0][U][182,110,1]
-@all[0][U][183,093,1]
-@all[0][U][183,074,1]
-@all[0][U][185,053,1]
-@all[0][U][182,043,1]
-@all[0][U][182,020,1]
-@all[0][U][126,058,1]
-@all[0][U][112,058,1]
-@all[0][U][108,075,1]
-@all[0][U][111,095,1]
-@all[0][U][111,104,1]
-@all[0][U][110,038,1]
-@all[0][U][109,020,1]
-_
-5{@all[0][U][003,059,1]}
-46{U}
-12{_}
-A
-_
-A
-_
-A
-_
-A
-_
-@sty[147,091,1]
-@all[0][A][147,091,1]
-@sty[147,091,1]
-@sty[149,073,1]
-@sty[149,054,1]
-@sty[147,038,1]
-@sty[148,022,1]
-@sty[125,022,1]
-@sty[113,022,1]
-@sty[181,096,1]
-@sty[179,075,1]
-@sty[179,059,1]
-@sty[182,037,1]
-@sty[183,018,1]
-@sty[182,056,1]
-@sty[164,092,1]
-_
-@all[0][A][202,030,1]
-_
-2{@sty[101,029,1]}
-@sty[120,029,1]
-@sty[137,029,1]
-@sty[137,047,1]
-@sty[137,064,1]
-@sty[137,083,1]
-@sty[138,101,1]
-@all[0][A][173,082,1]
-@sty[173,082,1]
-@sty[174,064,1]
-@all[0][A][174,046,1]
-@sty[174,028,1]
-@all[0][A][174,014,1]
-@sty[173,083,1]
-@all[0][A][155,083,1]
-@sty[155,083,1]
-2{@all[0][A][155,065,1]}
-@sty[156,047,1]
-@all[0][A][155,028,1]
-@sty[156,015,1]
-@sty[156,084,1]
-@all[0][A][156,084,1]
-@sty[173,083,1]
-@all[0][A][173,083,1]
-2{_}
-@all[0][A][155,101,1]
-@sty[155,101,1]
-@all[0][A][156,101,1]
-@sty[173,102,1]
-@all[0][A][173,102,1]
-_
-A
-@sty[005,052,1]
-@all[0][A][005,052,1]
-21{_}
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-5{_}
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-@sty[173,100,1]
-_
-2{@sty[173,100,1]}
-@sty[173,083,1]
-@sty[156,082,1]
-@sty[136,083,1]
-@sty[119,082,1]
-@sty[102,082,1]
-@all[0][A][173,065,1]
-@sty[155,065,1]
-@all[0][A][136,065,1]
-@sty[119,064,1]
-@all[0][A][101,064,1]
-@sty[155,099,1]
-@all[0][A][138,100,1]
-@sty[118,102,1]
-@all[0][A][102,100,1]
-_
-@sty[202,049,1]
-_
-@sty[180,092,1]
-@sty[181,073,1]
-@sty[165,072,1]
-@sty[147,073,1]
-@sty[122,073,1]
-@sty[111,072,1]
-@sty[182,093,1]
-A
-@sty[218,030,1]
-A
-@sty[147,065,1]
-@all[0][A][147,065,1]
-@sty[147,065,1]
-@all[0][A][147,065,1]
-@sty[147,065,1]
-@all[0][A][147,065,1]
-@all[0][A][199,047,1]
-@sty[199,047,1]
-@all[0][A][199,047,1]
-@sty[199,047,1]
-@all[0][A][199,047,1]
-@sty[199,047,1]
-@all[0][A][199,047,1]
-_
-@all[0][A][202,047,1]
-_
-A
-13{_}
-A
-9{_}
-A
-_
-A
-_
-A
-13{_}
-U
-A
-9{_}
-A
-_
-A
-_
-A
-36{_}
-57{U}
-X
-30{_}
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-_
-A
-23{_}
-27{D}
-12{_}
+// BC-34
+_ #cal[map_scrolleast]
+_ #cal[map_scrolleast]
+_ #cal[map_pencil]
+#cal[map_07_07]
+#cal[map_00_07] // v
+#cal[map_01_06] // ^ diag
+#cal[map_09_06]
+#cal[map_09_01]
+#cal[map_08_01]
+#cal[map_08_05]
+#cal[map_00_05] // v
+#cal[map_01_04] // ^ diag
+#cal[map_07_04]
+#cal[map_07_00]
+_ #cal[map_brush]
+#cal[map_a_g]
+#cal[map_b_g]
+#cal[map_c_g]
+#cal[map_d_g]
+#cal[map_e_g]
+#cal[map_f_g]
+#cal[map_g_g]
+#cal[map_h_g]
+#cal[map_i_g]
+#cal[map_j_g]
+#cal[map_j_f]
+#cal[map_j_e]
+#cal[map_j_d]
+#cal[map_j_c]
+#cal[map_j_b]
+#cal[map_j_a]
+#cal[map_i_a]
+#cal[map_h_a]
+#cal[map_h_b]
+#cal[map_h_c]
+#cal[map_h_d]
+#cal[map_h_e]
+#cal[map_g_e]
+#cal[map_f_e]
+#cal[map_e_e]
+#cal[map_d_e]
+#cal[map_c_e]
+#cal[map_b_e]
+#cal[map_a_e]
+
+// DE-34
+_ #cal[map_scrollsouth]
+_ #cal[map_scrollsouth]
+_ #cal[map_pencil]
+#cal[map_09_03]
+#cal[map_09_10] // v
+#cal[map_08_09] // ^ diag
+#cal[map_08_02]
+#cal[map_06_02]
+#cal[map_06_03]
+#cal[map_07_03]
+#cal[map_07_07]
+#cal[map_06_07]
+#cal[map_06_04]
+#cal[map_04_04]
+#cal[map_04_03]
+#cal[map_05_03]
+#cal[map_05_02]
+#cal[map_00_02] // v
+#cal[map_01_03] // ^ diag
+#cal[map_03_03]
+#cal[map_03_04]
+#cal[map_00_04] // v
+#cal[map_01_05] // ^ diag
+#cal[map_05_05]
+#cal[map_05_07]
+#cal[map_03_07]
+#cal[map_03_08]
+#cal[map_02_08]
+#cal[map_02_07]
+#cal[map_00_07] // v
+#cal[map_02_09] // ^ diag x2
+#cal[map_04_09]
+#cal[map_04_08]
+#cal[map_05_08]
+#cal[map_05_10] // v
+#cal[map_06_09] // ^ diag
+#cal[map_06_08]
+#cal[map_07_08]
+#cal[map_07_10]
+
+// DE-12
+_ #cal[map_scrollwest]
+_ #cal[map_scrollwest]
+_ #cal[map_pencil]
+#cal[map_09_02]
+#cal[map_01_02]
+#cal[map_01_04]
+#cal[map_02_04]
+#cal[map_02_03]
+#cal[map_03_03]
+#cal[map_03_05]
+#cal[map_02_05]
+#cal[map_02_07]
+#cal[map_01_07]
+#cal[map_01_10] // v
+#cal[map_04_09] // ^ diag-ish
+#cal[map_04_07]
+#cal[map_03_07]
+#cal[map_03_06]
+#cal[map_04_06]
+#cal[map_04_03]
+#cal[map_10_03] // v
+#cal[map_09_04] // ^ diag
+#cal[map_09_06]
+#cal[map_10_06] // v
+#cal[map_09_07] // ^ diag
+#cal[map_09_10]
+_ #cal[map_brush]
+#cal[map_j_c]
+#cal[map_i_c]
+#cal[map_h_c]
+#cal[map_g_c]
+#cal[map_f_c]
+#cal[map_e_c]
+#cal[map_d_c]
+#cal[map_c_c]
+#cal[map_b_c]
+#cal[map_b_d]
+#cal[map_d_d]
+#cal[map_d_e]
+#cal[map_d_f]
+#cal[map_c_f]
+#cal[map_c_g]
+#cal[map_b_h]
+#cal[map_c_h]
+#cal[map_d_h]
+#cal[map_b_i]
+#cal[map_c_i]
+#cal[map_d_i]
+#cal[map_b_j]
+
+// walk to the guard
+// this could be interspersed in the map drawing, but I'm keeping things clean for now
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+
+// PSA: remember skill points
+6{_}
+A    _
+A    _
+A    _
+A    _
+A    _
+A 13{_}
+
+// keep walking to the guard
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+
+// ask the guard what a map is
+25{_}
+A    _
+A  2{_}
+A 18{_}
+A  7{_}
+A  2{_}
+A    _
+A  2{_}
+A    _
+A 24{_}
+A    _
+A 35{_}
+A 23{_}
+A 18{_}
+A 24{_}
+A  8{_}
+A 20{_}
+U    _
+A  7{_}
+A 65{_}
+
+// show the guard the completed map
+#cal[crawl_forward] 25{_}
+A    _
+A  2{_}
+A  2{_}
+A  2{_}
+A 31{_}
+
+// walk to B2F
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_turnright]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_turnleft]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_turnleft]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+#cal[crawl_forward]
+
+// ENC: rat fly rat
+#cal[battle_introaftercrawl]
+#cal[battle_a_a] #cal[battle_1_3] #cal[battle_batonpass]
+#cal[battle_a_a] #cal[battle_1_3] #cal[battle_batonpass]
+#cal[battle_a_a] #cal[battle_1_3] 120{A}
+// !!! HERE continue the battle

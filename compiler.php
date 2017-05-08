@@ -227,6 +227,8 @@ foreach ($comSA as $comS){
 						return $matchSA[0];},
 					$comS);
 				if (!$regexMatchF){P::error("invalid syntax, see following line:".PHP_EOL.$comS);}
+			// optimization, command is ignored, but should have a comment explaining what should have gone in its place pre-optimization
+			break;case "#opt":;
 			// die, stop parsing, used to make programming/debugging more convenient
 			break;case "#die":
 				break 2;}}
