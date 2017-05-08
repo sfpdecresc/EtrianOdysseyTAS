@@ -14,7 +14,7 @@ A     _
 A     _
 A     _
 A     _
-A 256{_}
+A 258{_}
 
 // enter guild
 A 242{_}
@@ -37,7 +37,7 @@ A 76{_}
 #cal[keyboard_a]     _
 #cal[keyboard_s]     _
 #cal[keyboard_ent] 5{_}
-A 113{_}
+A 114{_}
 
 // mash through talking
 A 4{_}
@@ -48,7 +48,7 @@ A _
 A 23{_}
 
 // register adventurer
-A                       91{_}
+A                       93{_}
 #cal[keyboard_s]           _
 #cal[keyboard_f]           _
 #cal[keyboard_p]           _
@@ -81,7 +81,7 @@ A                        38{_}
 
 // no more
 R _
-A 95{_}
+A 96{_}
 
 // formation
 D    _
@@ -111,7 +111,7 @@ A 29{_}
 // [!] first-time warning for small formation
 A    _
 A    _
-A 94{_}
+A 96{_}
 
 // go to Radha Hall to solicit
 D     _
